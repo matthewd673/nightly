@@ -1,0 +1,23 @@
+#!/bin/bash
+#automate your nightly tasks quicker
+
+if [[ "$1" == "-d" ]]
+    then
+        #run scripts
+        
+        #check folder (refresh script list)
+        
+        for entry in "$PWD/night"/*
+        do
+            if [[ "$entry" == *".sh"* ]]
+                then
+                    echo "NIGHTLY: running $entry"
+                    env -i $entry
+            fi
+        done
+fi
+
+if [[ "$1" == "" ]]
+    then
+        echo "stick some scripts in /night and add nightly to your crontab to use"
+fi
